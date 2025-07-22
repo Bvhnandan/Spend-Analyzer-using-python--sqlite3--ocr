@@ -1,12 +1,12 @@
 import pytesseract
 import re
 import cv2
-import fitz  # PyMuPDF for PDF
+import fitz
 
-# Set the tesseract command path manually (for Windows support)
+
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
-# === OCR Functions ===
+
 
 # Extract text from image using Tesseract
 def extract_text_from_image(image_path: str) -> str:
@@ -27,7 +27,7 @@ def extract_text_from_txt(txt_path: str) -> str:
     with open(txt_path, 'r', encoding='utf-8', errors='ignore') as f:
         return f.read()
 
-# === Rule-Based Parsing Logic ===
+#  Rule-Based Parsing Logic 
 
 def parse_receipt(text: str) -> dict:
     lines = [line.strip() for line in text.split('\n') if line.strip()]
