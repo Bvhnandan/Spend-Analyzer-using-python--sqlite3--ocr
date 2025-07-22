@@ -24,13 +24,13 @@ from analytics import (
 
 app = FastAPI()
 
-# === ROOT ===
+
 @app.get("/")
 def root():
     return {"message": "Welcome to PyReceiptAnalyzer API 🎉"}
 
 
-# === UPLOAD RECEIPT ===
+
 @app.post("/upload", response_model=ReceiptData)
 async def upload_receipt(file: UploadFile = File(...)):
     try:
@@ -79,7 +79,7 @@ async def upload_receipt(file: UploadFile = File(...)):
         )
 
 
-# === FETCH ALL RECEIPTS ===
+# FETCH ALL RECEIPTS 
 @app.get("/receipts")
 def fetch_receipts():
     receipts = get_all_receipts()
@@ -96,7 +96,7 @@ def fetch_receipts():
     return JSONResponse(content=result)
 
 
-# === SEARCH / FILTER RECEIPTS ===
+# SEARCH / FILTER RECEIPTS 
 @app.get("/receipts/search")
 def search_receipts(
     vendor: Optional[str] = None,
@@ -109,19 +109,19 @@ def search_receipts(
     return search_receipts_db(vendor, date, min_amount, max_amount, sort_by, desc)
 
 
-# === ANALYTICS: Spending Summary ===
+# ANALYTICS: Spending Summary 
 @app.get("/analytics/spending")
 def get_spending_stats():
     return spending_stats(conn)
 
 
-# === ANALYTICS: Vendor Frequency Chart ===
+#  ANALYTICS: Vendor Frequency Chart 
 @app.get("/analytics/vendors")
 def get_vendor_frequency():
     return vendor_frequency(conn)
 
 
-# === ANALYTICS: Monthly Spend Trends ===
+#  ANALYTICS: Monthly Spend Trends 
 @app.get("/analytics/monthly")
 def get_monthly_spending():
     return monthly_spending(conn)
