@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+pydantic
+python-multipart
+pytesseract
+OpenCV
+pdfplumber
+PyMuPDF
+python-dotenv
+sqlite-utils
+numpy
+pandas
+matplotlib
+streamlit
