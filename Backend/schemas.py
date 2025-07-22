@@ -6,4 +6,4 @@ class ReceiptData(BaseModel):
     date: str
     amount: float
     category: Optional[str]
-    payment_mode: Optional[str]  # 👈 New field
+    payment_mode: Optional[str]
