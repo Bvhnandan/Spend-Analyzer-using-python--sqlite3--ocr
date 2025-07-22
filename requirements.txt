@@ -4,8 +4,7 @@ pydantic
 python-multipart
 pytesseract
 opencv-python
-pdfplumber
-PyMuPDF
+fitz
 python-dotenv
 sqlite-utils
 numpy
